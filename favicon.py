@@ -1,7 +1,5 @@
-import mmh3
-import requests
- 
-response = requests.get('https://unomi.apache.org/favicon.ico')
-favicon = response.content.encode('base64')
+import requests,mmh3,base64
+response = requests.get('https://website/favicon.ico')
+favicon = base64.encodebytes(response.content)
 hash = mmh3.hash(favicon)
 print(hash)
